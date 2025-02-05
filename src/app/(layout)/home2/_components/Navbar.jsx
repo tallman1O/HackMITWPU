@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
+import { FiMoreVertical } from "react-icons/fi";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setisNavVisible] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
@@ -64,8 +66,6 @@ const Navbar = () => {
         <nav className="flex size-full items-center justify-between p-4 text-hack-400">
           {/* Logo and Product button */}
           <div className="flex items-center gap-7">
-            {/* <img src="/img/logo.png" alt="logo" className="w-10" /> */}
-
             <Button
               id="product-button"
               title="Register"
@@ -74,23 +74,45 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex h-full items-center">
-            <div className="hidden md:block">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn text-blue-900 hover:text-hack-300"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex h-full items-center space-x-6">
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={`#${item.toLowerCase()}`}
+                className="nav-hover-btn text-blue-900 hover:text-hack-400"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <FiMoreVertical className="text-2xl text-blue-900" />
+            </button>
           </div>
         </nav>
       </header>
+      
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute right-4 top-16 w-48 bg-black rounded-md shadow-lg p-3 flex flex-col gap-3 md:hidden">
+          {navItems.map((item, index) => (
+            <a
+              key={index}
+              href={`#${item.toLowerCase()}`}
+              className="block text-blue-900 hover:text-hack-300"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
+
 export default Navbar;

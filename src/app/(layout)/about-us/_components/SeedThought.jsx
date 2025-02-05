@@ -1,51 +1,22 @@
-// import React from "react";
-// import { motion } from "framer-motion";
-
-// const SeedThought = () => {
-//   const textBlocks = [
-//     "At MIT World Peace University (MIT WPU), we are dedicated to fostering the holistic development of our students through innovative education. Our aim goes beyond traditional subjects, focusing on cultivating versatile skills and values that transcend career boundaries.",
-//     "In this era of rapid information, we understand that future careers may be unpredictable. To prepare our students for these challenges, we provide essential skills and adaptability. Our history is a testament to our commitment to evolving education to meet changing needs. We remain steadfast in our mission to prepare students for an ever-evolving professional world.",
-//     "A distinctive conclave, called RIDE (Research, Innovation, Design, and Entrepreneurship), was conceptualized in 2022. The conclave gives an exceptional doorway to students to understand and explore new approaches to research, innovation, design, and entrepreneurship, as was made evident by the huge success of RIDE22, the inaugural edition. We have always believed in the importance of practical application of knowledge beyond textbooks.",
-//     "As a secondary aim of RIDE 24, we aspire to promote the spirit of nationalism, foster a strong national identity, and instill pride in our rich culture. Central to this goal is our advocacy for the traditional name of our beloved nation, 'Bharat,' which aligns harmoniously with our heritage and values.",
-//   ];
-
-//   return (
-//     <motion.section
-//       initial={{ opacity: 0, y: 20 }}
-//       whileInView={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.8 }}
-//       className="relative max-w-5xl mx-auto bg-white p-10 rounded-xl border border-hack-200 text-center text-black"
-//     >
-//       <h2 className="text-4xl font-bold text-hack-100 mb-6">Seed Thought</h2>
-//       {textBlocks.map((text, index) => (
-//         <p key={index} className="text-lg leading-relaxed mt-4">{text}</p>
-//       ))}
-//     </motion.section>
-//   );
-// };
-
-// export default SeedThought;
-
-
 import React, { useState } from 'react';
 
 const AnimatedCard = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div className="min-h-screen w-full flex items-center justify-center p-4">
       <div
-        className={`w-[700px] max-w-3xl  rounded-2xl shadow-2xl transform transition-all duration-700 ease-out
-          ${isHovered ? 'scale-110 shadow-3xl rotate-1' : 'rotate-0'}`}
+        className={`w-full md:w-[700px] max-w-3xl rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl transform transition-all duration-700 ease-out
+          ${isHovered ? 'md:scale-105 md:shadow-3xl md:rotate-1' : 'rotate-0'}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Floating Particles - Hidden on mobile */}
+        <div className="absolute inset-0 overflow-hidden hidden md:block">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className={`absolute w-4 h-4  rounded-full opacity-0 transition-all duration-1000
+              className={`absolute w-2 md:w-4 h-2 md:h-4 rounded-full opacity-0 transition-all duration-1000
                 ${isHovered ? 'opacity-30 animate-float' : ''}`}
               style={{
                 left: `${Math.random() * 100}%`,
@@ -58,32 +29,32 @@ const AnimatedCard = () => {
         </div>
 
         {/* Card Header with Enhanced Animation */}
-        <div className="relative overflow-hidden rounded-t-2xl">
-          <div className={`bg-hack-100 p-8 transition-all duration-700
+        <div className="relative overflow-hidden rounded-t-xl md:rounded-t-2xl">
+          <div className={`bg-hack-100 p-4 md:p-8 transition-all duration-700
             ${isHovered ? 'bg-opacity-90' : 'bg-opacity-100'}`}>
-            <h2 className={`text-4xl font-bold text-hack-500 mb-3 transition-all duration-500
-              ${isHovered ? 'translate-x-2' : 'translate-x-0'}`}>
+            <h2 className={`text-2xl md:text-4xl font-bold text-hack-500 mb-2 md:mb-3 transition-all duration-500
+              ${isHovered ? 'md:translate-x-2' : 'translate-x-0'}`}>
               Seed Thought
             </h2>
             <div 
               className={`h-1 bg-yellow-400 transition-all duration-700 ease-in-out
-                ${isHovered ? 'w-60 translate-x-4' : 'w-20 translate-x-0'}`}
+                ${isHovered ? 'w-40 md:w-60 md:translate-x-4' : 'w-16 md:w-20 translate-x-0'}`}
             />
           </div>
           
-          {/* Enhanced Corner Decorations */}
-          <div className={`absolute top-0 right-0 w-28 h-28 transition-all duration-700
+          {/* Corner Decorations - Hidden on mobile */}
+          <div className={`absolute top-0 right-0 w-16 md:w-28 h-16 md:h-28 transition-all duration-700 hidden md:block
             ${isHovered ? 'translate-x-0 translate-y-0 rotate-0' : 'translate-x-full -translate-y-full rotate-45'}`}>
             <div className="w-full h-full border-r-4 border-t-4 border-yellow-400 rounded-tr-2xl" />
           </div>
-          <div className={`absolute bottom-0 left-0 w-28 h-28 transition-all duration-700
+          <div className={`absolute bottom-0 left-0 w-16 md:w-28 h-16 md:h-28 transition-all duration-700 hidden md:block
             ${isHovered ? 'translate-x-0 translate-y-0 rotate-0' : '-translate-x-full translate-y-full -rotate-45'}`}>
             <div className="w-full h-full border-l-4 border-b-4 border-yellow-400 rounded-bl-2xl" />
           </div>
         </div>
 
         {/* Card Content with Staggered Animations */}
-        <div className="p-8 space-y-5 relative">
+        <div className="p-4 md:p-8 space-y-4 md:space-y-5 relative">
           {[
             "In the realm of innovation and progress, seed thoughts serve as the foundation of great achievements. These initial sparks of inspiration, no matter how small they may seem at first, have the potential to grow into transformative ideas that can reshape our understanding and approach to challenges.",
             "Like seeds scattered in fertile soil, these thoughts need nurturing, patience, and dedication to flourish. They require the right environment, careful attention, and sometimes, the collaborative effort of many minds working together towards a common goal. Through this process, what begins as a simple concept can evolve into groundbreaking solutions.",
@@ -91,19 +62,19 @@ const AnimatedCard = () => {
           ].map((text, index) => (
             <p
               key={index}
-              className={`text-lg text-gray-700 leading-relaxed transition-all duration-700 delay-${index * 100}
-                ${isHovered ? 'text-blue-800 translate-x-2' : 'translate-x-0'}`}
+              className={`text-base md:text-lg text-gray-700 leading-relaxed transition-all duration-700
+                ${isHovered ? 'text-blue-800 md:translate-x-2' : 'translate-x-0'}`}
               style={{
                 transitionDelay: `${index * 100}ms`,
-                transform: isHovered ? `translateX(${index * 4}px)` : 'none'
+                transform: isHovered ? `translateX(${index * 2}px)` : 'none'
               }}
             >
               {text}
             </p>
           ))}
 
-          {/* Animated Footer with Pulse Effect */}
-          <div className="relative h-1 mt-8">
+          {/* Animated Footer */}
+          <div className="relative h-1 mt-6 md:mt-8">
             <div className={`absolute inset-0 bg-hack-400 transition-all duration-1000 ease-in-out
               ${isHovered ? 'w-full scale-x-100' : 'w-0 scale-x-0'}`} 
             />
@@ -113,9 +84,9 @@ const AnimatedCard = () => {
           </div>
         </div>
 
-        {/* Hover Glow Effect */}
-        <div className={`absolute inset-0 bg-hack-300 mix-blend-multiply filter blur-xl transition-all duration-700
-          ${isHovered ? 'opacity-10' : 'opacity-0'}`} 
+        {/* Hover Glow Effect - Reduced on mobile */}
+        <div className={`absolute inset-0 bg-hack-300 mix-blend-multiply filter blur-md md:blur-xl transition-all duration-700
+          ${isHovered ? 'opacity-5 md:opacity-10' : 'opacity-0'}`} 
         />
       </div>
 

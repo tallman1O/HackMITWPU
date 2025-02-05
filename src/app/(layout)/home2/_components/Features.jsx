@@ -77,7 +77,7 @@ const Features = () => {
         </div>
         <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
           <BentoCard
-            src="videos/hackVideo1.mp4"
+            src="./videos/hackVideo1.mp4"
             title={
               <>
                 Inn<b>o</b>vate
@@ -89,7 +89,7 @@ const Features = () => {
         <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
           <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
             <BentoCard
-              src="videos/hackVideo2.mp4"
+              src="./videos/hackVideo2.mp4"
               title={
                 <>
                   Coll<b>a</b>borate
@@ -100,7 +100,7 @@ const Features = () => {
           </BentoTilt>
           <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
             <BentoCard
-              src="videos/hackVideo3.mov"
+              src="./videos/hackVideo3.mov"
               title={
                 <>
                   Cod<b>e</b>
@@ -111,7 +111,7 @@ const Features = () => {
           </BentoTilt>
           <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
             <BentoCard
-              src="videos/hackVideo4.mp4"
+              src="./videos/hackVideo4.mp4"
               title={
                 <>
                   S<b>h</b>owcase
@@ -133,7 +133,7 @@ const Features = () => {
 
           <div className="bento-tilt_2">
             <video
-              src="videos/hackVideo5.mp4"
+              src="./videos/hackVideo5.mp4"
               loop
               muted
               autoPlay

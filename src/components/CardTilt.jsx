@@ -14,8 +14,8 @@ export const CardTilt = ({ children, className = "" }) => {
     const relativeY = (e.clientY - top) / height;
 
     // Reduced tilt angle for subtler effect
-    const tiltX = (relativeY - 0.5) * 7; 
-    const tiltY = (relativeX - 0.5) * -7; 
+    const tiltX = (relativeY - 0.9) * 8; 
+    const tiltY = (relativeX - 0.9) * -8; 
 
     // Added ease-out timing function and increased perspective
     const newTransform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;

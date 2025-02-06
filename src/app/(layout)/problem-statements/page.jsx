@@ -17,7 +17,7 @@ const Page = () => {
             <TextAnimate
               animation="blurInUp"
               by="character"
-              className="special-font hero-heading !text-7xl text-hack-100"
+              className="font-general font-bold !text-7xl text-hack-100"
             >
               Problem Statements
             </TextAnimate>
@@ -30,8 +30,9 @@ const Page = () => {
                 <Card
                   variant={"primary"}
                   title={card.title}
-                  subtitle={""}
+                  subtitle={card.description}
                   index={card.id}
+                  imgUri={card.src}
                 />
               </div>
             ))}
